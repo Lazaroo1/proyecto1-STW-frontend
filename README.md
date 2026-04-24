@@ -8,6 +8,7 @@ Cliente web para el Series Tracker, construido con HTML, CSS y JavaScript vanill
 ## Screenshot
 
 ![App corriendo](screenshot.png)
+![App corriendo](screenshot2.png)
 
 ## Cómo correr localmente
 
