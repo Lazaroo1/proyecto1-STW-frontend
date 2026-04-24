@@ -10,7 +10,7 @@
 
   <header>
     <div class="header-left">
-      <span class="logo">SeriesTracker</span>
+      <span class="logo">🎬 SeriesTracker</span>
     </div>
     <div class="header-right">
       <input type="text" id="search" placeholder="Buscar series..." />
@@ -33,6 +33,12 @@
           <option value="asc">Ascendente</option>
           <option value="desc">Descendente</option>
         </select>
+        <label>Por página:</label>
+        <select id="limit">
+          <option value="24">24</option>
+          <option value="48">48</option>
+          <option value="72">72</option>
+        </select>
       </div>
       <span id="total-label"></span>
     </div>
@@ -46,6 +52,7 @@
     </div>
   </main>
 
+  <!-- Modal -->
   <div id="modal" class="modal hidden">
     <div class="modal-box">
       <h2 id="modal-title">Agregar Serie</h2>

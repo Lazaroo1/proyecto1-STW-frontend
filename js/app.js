@@ -1,6 +1,6 @@
 let state = {
   page: 1,
-  limit: 20,
+  limit: 24,
   total: 0,
   sort: 'id',
   order: 'asc',
@@ -43,7 +43,8 @@ function renderGrid() {
   if (state.series.length === 0) {
     grid.innerHTML = `
       <div class="empty">
-        <p>No hay series todavía. Agrega una</p>
+        <div style="font-size:3rem">📭</div>
+        <p>No hay series todavía. ¡Agrega una!</p>
       </div>`;
     return;
   }
@@ -134,7 +135,6 @@ function closeModal() {
   modal.classList.add('hidden');
 }
 
-
 async function saveSeries() {
   const data = {
     name:            formName.value.trim(),
@@ -157,7 +157,6 @@ async function saveSeries() {
   load();
 }
 
-// csv
 async function exportCSV() {
   const data = await apiGetSeries({ limit: 1000, sort: state.sort, order: state.order, q: state.q });
   const rows = data.data || [];
@@ -199,6 +198,12 @@ document.getElementById('sort').addEventListener('change', e => {
 
 document.getElementById('order').addEventListener('change', e => {
   state.order = e.target.value;
+  load();
+});
+
+document.getElementById('limit').addEventListener('change', e => {
+  state.limit = parseInt(e.target.value);
+  state.page = 1;
   load();
 });
 
